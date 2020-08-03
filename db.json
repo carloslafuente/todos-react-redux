@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Task title 1",
+      "creationDate": "3/8/2020",
+      "finishDate": "15/08/2020",
+      "status": "Pendiente"
+    },
+    {
+      "id": 2,
+      "title": "Task title 2",
+      "creationDate": "4/8/2020",
+      "finishDate": "15/08/2020",
+      "status": "Atrasada"
+    },
+    {
+      "id": 3,
+      "title": "Task title 3",
+      "creationDate": "10/8/2020",
+      "finishDate": "15/08/2020",
+      "status": "Liberada"
+    }
+  ]
+}
