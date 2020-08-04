@@ -1,17 +1,21 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from './actionTypes';
+import { GET_TODO, ADD_TODO, EDIT_TODO, SET_FILTER } from './actionTypes';
+import axios from 'axios';
 
-let nextTodoId = 0;
-
+export const getTodos = () => {
+  return (dispatch) =>
+    axios.get('http://localhost:5000/todos').then((data) => {
+      dispatch({ type: GET_TODO, payload: data });
+    });
+};
 export const addTodo = (content) => ({
   type: ADD_TODO,
   payload: {
-    id: ++nextTodoId,
     content,
   },
 });
 
 export const toggleTodo = (id) => ({
-  type: TOGGLE_TODO,
+  type: EDIT_TODO,
   payload: { id },
 });
 

@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import rootReducer from './redux/reducers';
 import { createStore } from 'redux';
-import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer);
 
@@ -18,5 +17,3 @@ const Root = (
 );
 
 ReactDOM.render(Root, rootElement);
-
-serviceWorker.unregister();
