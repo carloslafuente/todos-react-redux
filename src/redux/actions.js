@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getTodos = () => {
   return (dispatch) =>
-    axios.get('http://localhost:5000/todos').then((data) => {
+    axios.get('http://localhost:5000/tasks').then((data) => {
       dispatch({ type: GET_TODO, payload: data });
     });
 };
