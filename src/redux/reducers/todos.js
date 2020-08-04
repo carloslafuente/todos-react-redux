@@ -13,14 +13,14 @@ const initialState = {
       id: 2,
       title: 'Hacer la tarea',
       creationDate: '4/8/2020',
-      finishDate: '15/08/2020',
+      finishDate: '20/08/2020',
       status: 'Atrasada',
     },
     {
       id: 3,
       title: 'Estudiar para el examen',
       creationDate: '10/8/2020',
-      finishDate: '15/08/2020',
+      finishDate: '23/08/2020',
       status: 'Liberada',
     },
   ],
@@ -34,15 +34,21 @@ export default function (state = initialState, action) {
       });
     }
     case ADD_TODO: {
-      const { newTask } = action.payload;
-      return {
-        tasks: [...state.tasks, newTask],
-      };
+      const newTask = action.payload;
+      return { ...state, tasks: [...state.tasks.concat(newTask)] };
     }
     case EDIT_TODO: {
-      const { id } = action.payload;
+      console.log(action.payload);
+      const taskToEdit = action.payload;
+      let res = state.tasks.map((task) => {
+        if (task.id === taskToEdit.id) {
+          task = taskToEdit;
+        }
+        return task;
+      });
       return {
         ...state,
+        tasks: res,
       };
     }
     default:

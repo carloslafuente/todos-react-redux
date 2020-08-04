@@ -7,19 +7,27 @@ export const getTodos = () => {
       dispatch({ type: GET_TODO, payload: data });
     });
 };
-export const addTodo = (content) => ({
-  type: ADD_TODO,
-  payload: {
-    content,
-  },
-});
 
-export const toggleTodo = (id) => ({
-  type: EDIT_TODO,
-  payload: { id },
-});
+export const addTodo = (content) => {
+  console.log(content);
+  return {
+    type: ADD_TODO,
+    payload: content,
+  };
+};
 
-export const setFilter = (filter) => ({
-  type: SET_FILTER,
-  payload: { filter },
-});
+export const editTodo = (content) => {
+  console.log(content);
+  return {
+    type: EDIT_TODO,
+    payload: content,
+  };
+};
+
+export const setFilter = (filter) => {
+  console.log(filter);
+  return {
+    type: SET_FILTER,
+    payload: { filter },
+  };
+};
