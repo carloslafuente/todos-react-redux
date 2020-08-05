@@ -17,11 +17,9 @@ const TasksList = ({ tasks }) => {
 };
 
 const mapStateToProps = (state) => {
-  const { visibilityFilter, todos } = state;
-  const tasksF = getTodosByVisibilityFilter(state, visibilityFilter);
-  return { tasks: todos.tasks, tasksF };
+  const { visibilityFilter } = state;
+  const tasks = getTodosByVisibilityFilter(state, visibilityFilter);
+  return { tasks: tasks };
 };
 
-const mapDispatchToProps = () => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList);
+export default connect(mapStateToProps, {})(TasksList);

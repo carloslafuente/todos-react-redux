@@ -8,6 +8,12 @@ const Task = ({ task, editTodo }) => {
     let day = date.split('/')[0];
     let month = date.split('/')[1];
     let year = date.split('/')[2];
+    if (Number(month) < 10) {
+      month = '0' + month;
+    }
+    if (Number(day) < 10) {
+      day = '0' + day;
+    }
     let res = `${year}-${month}-${day}`;
     return res;
   };
@@ -16,21 +22,21 @@ const Task = ({ task, editTodo }) => {
     let day = date.split('-')[2];
     let month = date.split('-')[1];
     let year = date.split('-')[0];
-    let res = `${month}/${day}/${year}`;
+    month = Number(month).toString();
+    day = Number(day).toString();
+    let res = `${day}/${month}/${year}`;
     return res;
   };
 
   const HandleDate = (event) => {
-    console.log(event.target.value);
     let newFinishDate = formatDate(event.target.value);
     updateFinishDate(newFinishDate);
   };
 
   const updateFinishDate = (newDate) => {
-    console.log(newDate);
     let newTask = {
       ...task,
-      finishDate: task.finishDate,
+      finishDate: newDate,
     };
     editTodo(newTask);
   };
