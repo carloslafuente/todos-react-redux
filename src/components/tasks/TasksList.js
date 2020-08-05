@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import AddTask from './AddTask';
 import Task from './Task';
 import { getTodosByVisibilityFilter } from '../../redux/selectors';
-
 const TasksList = ({ tasks }) => {
   return (
     <div className='Task'>
-      {tasks.map((t) => (
-        <Task task={t} key={t.id} />
-      ))}
+      {tasks ? tasks.map((t) => <Task task={t} key={t.id} />) : null}
       <AddTask />
     </div>
   );
@@ -19,7 +16,8 @@ const TasksList = ({ tasks }) => {
 const mapStateToProps = (state) => {
   const { visibilityFilter } = state;
   const tasks = getTodosByVisibilityFilter(state, visibilityFilter);
-  return { tasks: tasks };
+  console.log(tasks);
+  return { tasks };
 };
 
-export default connect(mapStateToProps, {})(TasksList);
+export default connect(mapStateToProps)(TasksList);

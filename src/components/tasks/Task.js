@@ -45,6 +45,7 @@ const Task = ({ task, editTodo }) => {
     <div className='Specs' key={task.id}>
       <div>
         <h3>{task.status}</h3>
+        <h5 style={{ margin: '5px' }}>Creacion: {task.creationDate}</h5>
       </div>
 
       <div>
@@ -52,6 +53,7 @@ const Task = ({ task, editTodo }) => {
       </div>
 
       <div>
+        <h5 style={{ margin: '5px' }}>Finaliza:</h5>
         <input
           defaultValue={rightFormat(task.finishDate)}
           type='date'

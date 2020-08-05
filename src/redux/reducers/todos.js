@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, GET_TODO } from '../actionTypes';
+import { ADD_TODO, EDIT_TODO } from '../actionTypes';
 
 const initialState = {
   tasks: [
@@ -49,9 +49,6 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_TODO: {
-      return state;
-    }
     case ADD_TODO: {
       const newTask = action.payload;
       return { ...state, tasks: [...state.tasks.concat(newTask)] };

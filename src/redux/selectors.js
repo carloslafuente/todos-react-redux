@@ -22,6 +22,9 @@ export const getTodos = (store) => {
 
 const getByCreationDateDes = (allTodos) => {
   let res = allTodos;
+  res = allTodos.filter((task) => {
+    return task.creationDate !== undefined;
+  });
   res.sort((a, b) => {
     return (
       new Date(formatDate(b.creationDate)) -
@@ -33,6 +36,9 @@ const getByCreationDateDes = (allTodos) => {
 
 const getByCreationDateAsc = (allTodos) => {
   let res = allTodos;
+  res = allTodos.filter((task) => {
+    return task.creationDate !== undefined;
+  });
   res.sort((a, b) => {
     return (
       new Date(formatDate(a.creationDate)) -
@@ -43,19 +49,29 @@ const getByCreationDateAsc = (allTodos) => {
 };
 
 const getByFinishDateAsc = (allTodos) => {
-  return allTodos.sort((a, b) => {
+  let res = allTodos;
+  res = allTodos.filter((task) => {
+    return task.creationDate !== undefined;
+  });
+  res.sort((a, b) => {
     return (
       new Date(formatDate(a.finishDate)) - new Date(formatDate(b.finishDate))
     );
   });
+  return res;
 };
 
 const getByFinishDateDes = (allTodos) => {
-  return allTodos.sort((a, b) => {
+  let res = allTodos;
+  res = allTodos.filter((task) => {
+    return task.creationDate !== undefined;
+  });
+  res.sort((a, b) => {
     return (
       new Date(formatDate(b.finishDate)) - new Date(formatDate(a.finishDate))
     );
   });
+  return res;
 };
 
 const getByStatusAtrLib = (allTodos) => {
@@ -91,16 +107,22 @@ export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
   switch (visibilityFilter) {
     case VISIBILITY_FILTERS.CREATION_DATE_DESC:
       return getByCreationDateDes(allTodos);
+
     case VISIBILITY_FILTERS.CREATION_DATE_ASC:
       return getByCreationDateAsc(allTodos);
+
     case VISIBILITY_FILTERS.FINISH_DATE_ASC:
       return getByFinishDateAsc(allTodos);
+
     case VISIBILITY_FILTERS.FINISH_DATE_DESC:
       return getByFinishDateDes(allTodos);
+
     case VISIBILITY_FILTERS.STATUS_ATR_LIB:
       return getByStatusAtrLib(allTodos);
+
     case VISIBILITY_FILTERS.STATUS_LIB_ATR:
       return getByStatusLibAtr(allTodos);
+
     default:
       return getByCreationDateDes(allTodos);
   }

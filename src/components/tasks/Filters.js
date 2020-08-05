@@ -34,12 +34,6 @@ const Filters = ({ activeFilter, setFilter }) => {
               </option>
             );
           })}
-          {/* 
-            <option value='dateMayToMen'>Fecha de Creacion &#8593;</option>
-            <option value='finishDateMenToMay'>
-              Fecha de Vencimiento &#8595;
-            </option>
-          */}
         </select>
       ) : null}
     </div>

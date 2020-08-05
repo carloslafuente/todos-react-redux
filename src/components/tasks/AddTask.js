@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 import uuid from 'react-uuid';
 
-const AddTask = ({ task = {}, currentFilter, addTodo }) => {
-  const updateInput = (input) => {
-    task.title = input;
-  };
+const AddTask = ({ addTodo }) => {
+  const [titleTask, setTitleTask] = useState({});
+  const updateInput = (input) => setTitleTask(input);
 
-  const updateFinishDate = (value) => {
-    task.finishDate = formatDate(rightFormat(value));
-  };
+  const [finishTask, setFinishTask] = useState({});
+  const updateFinishDate = (value) =>
+    setFinishTask(formatDate(rightFormat(value)));
 
   const today = () => {
     return formatDate(new Date());
@@ -36,25 +35,63 @@ const AddTask = ({ task = {}, currentFilter, addTodo }) => {
   const handleAddTodo = () => {
     let newTask = {
       id: uuid(),
-      title: task.title,
+      title: titleTask,
       creationDate: today(),
-      finishDate: task.finishDate,
+      finishDate: finishTask,
       status: 'Pendiente',
     };
     addTodo(newTask);
   };
 
+  const defaultDate = () => {
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    if (Number(month) < 10) {
+      month = '0' + month;
+    }
+    if (Number(day) < 10) {
+      day = '0' + day;
+    }
+    let res = `${year}-${month}-${day}`;
+    return res;
+  };
+
+  const [openFilter, setOpenFilter] = useState(false);
+
+  const handleVisibility = () => setOpenFilter(!openFilter);
+
   return (
     <div className='Specs'>
-      <input onChange={(e) => updateInput(e.target.value)}></input>
+      {!openFilter ? (
+        <div
+          style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+        >
+          <h1
+            style={{ fontSize: '4rem', margin: '0', cursor: 'pointer' }}
+            onClick={handleVisibility}
+          >
+            +
+          </h1>
+        </div>
+      ) : null}
 
-      <input
-        onChange={(e) => updateFinishDate(e.target.value)}
-        type='date'
-      ></input>
+      {openFilter ? (
+        <div className='NewTaskData'>
+          <input onChange={(e) => updateInput(e.target.value)}></input>
 
-      <button onClick={handleAddTodo}>Add</button>
-      <h5>Filtro: {currentFilter}</h5>
+          <input
+            defaultValue={defaultDate()}
+            onChange={(e) => updateFinishDate(e.target.value)}
+            type='date'
+          ></input>
+
+          <button onClick={handleAddTodo}>Add</button>
+
+          <button onClick={handleVisibility}>X</button>
+        </div>
+      ) : null}
     </div>
   );
 };

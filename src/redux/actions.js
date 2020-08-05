@@ -1,11 +1,4 @@
-import { GET_TODO, ADD_TODO, EDIT_TODO, SET_FILTER } from './actionTypes';
-
-export const getTodos = (tasks) => {
-  return {
-    type: GET_TODO,
-    payload: tasks,
-  };
-};
+import { ADD_TODO, EDIT_TODO, SET_FILTER } from './actionTypes';
 
 export const addTodo = (content) => {
   return {
