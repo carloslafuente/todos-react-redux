@@ -3,6 +3,12 @@ import './Tasks.css';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 import uuid from 'react-uuid';
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
+import CardContent from '@material-ui/core/CardContent';
+import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import { AddCircle, Close } from '@material-ui/icons';
 
 const AddTask = ({ addTodo }) => {
   const [titleTask, setTitleTask] = useState({});
@@ -63,36 +69,51 @@ const AddTask = ({ addTodo }) => {
   const handleVisibility = () => setOpenFilter(!openFilter);
 
   return (
-    <div className='Specs'>
+    <Card color='primary' className='Specs' style={{ padding: '30px' }}>
       {!openFilter ? (
-        <div
-          style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+        <IconButton
+          onClick={handleVisibility}
+          color='primary'
+          style={{ display: 'flex', justifyContent: 'center' }}
         >
-          <h1
-            style={{ fontSize: '4rem', margin: '0', cursor: 'pointer' }}
-            onClick={handleVisibility}
-          >
-            +
-          </h1>
-        </div>
+          <AddCircle style={{ fontSize: 80 }} />
+        </IconButton>
       ) : null}
 
       {openFilter ? (
-        <div className='NewTaskData'>
-          <input onChange={(e) => updateInput(e.target.value)}></input>
-
+        <CardContent className='NewTaskData'>
           <input
-            defaultValue={defaultDate()}
-            onChange={(e) => updateFinishDate(e.target.value)}
-            type='date'
+            onChange={(e) => updateInput(e.target.value)}
+            placeholder='Nueva Tarea'
           ></input>
 
-          <button onClick={handleAddTodo}>Add</button>
+          <form noValidate>
+            <TextField
+              color='primary'
+              label='Finaliza:'
+              type='date'
+              defaultValue={defaultDate()}
+              onChange={(e) => updateFinishDate(e.target.value)}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </form>
 
-          <button onClick={handleVisibility}>X</button>
-        </div>
+          <Button color='primary' onClick={handleAddTodo}>
+            Crear Tarea
+          </Button>
+
+          <IconButton
+            color='secondary'
+            className='CloseButton'
+            onClick={handleVisibility}
+          >
+            <Close />
+          </IconButton>
+        </CardContent>
       ) : null}
-    </div>
+    </Card>
   );
 };
 

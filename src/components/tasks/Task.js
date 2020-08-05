@@ -2,6 +2,13 @@ import React from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
 import { editTodo, addIdToIds, removeIdFromIds } from '../../redux/actions';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Avatar from '@material-ui/core/Avatar';
 
 const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
   const rightFormat = (date) => {
@@ -51,28 +58,53 @@ const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
     }
   };
 
+  const states = {
+    Liberada: {
+      icon: require('../../assets/liberada.svg'),
+      style: 'Card-Liberada',
+    },
+
+    Atrasada: {
+      icon: require('../../assets/atrasada.svg'),
+      style: 'Card-Atrasada',
+    },
+    Pendiente: {
+      icon: require('../../assets/pendiente.svg'),
+      style: 'Card-Pendiente',
+    },
+  };
+
   return (
-    <div className='Specs' key={task.id}>
-      <input type='checkbox' onChange={handleCheckBox}></input>
+    <Card color='primary' className={'Specs ' + states[task.status].style} key={task.id}>
+      <Checkbox
+        className='SpecsCheckBox'
+        color='default'
+        type='checkbox'
+        onChange={handleCheckBox}
+      ></Checkbox>
 
-      <div>
-        <h3>{task.status}</h3>
-        <h5 style={{ margin: '5px' }}>Creacion: {task.creationDate}</h5>
-      </div>
+      <CardHeader className='SpecsTitle' title={task.title} />
 
-      <div>
-        <h2>{task.title}</h2>
-      </div>
+      <CardContent className='SpecsContent'>
+        <Avatar style={{ margin: '10px' }} alt={task.title} src={states[task.status].icon} />
 
-      <div>
-        <h5 style={{ margin: '5px' }}>Finaliza:</h5>
-        <input
-          defaultValue={rightFormat(task.finishDate)}
-          type='date'
-          onChange={HandleDate}
-        ></input>
-      </div>
-    </div>
+        <Typography style={{ margin: '5px' }}>
+          Creado: {task.creationDate}
+        </Typography>
+
+        <form noValidate>
+          <TextField
+            label='Finaliza:'
+            type='date'
+            defaultValue={rightFormat(task.finishDate)}
+            onChange={HandleDate}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 

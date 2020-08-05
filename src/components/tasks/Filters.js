@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import filterImg from '../../assets/filter-solid.svg';
 import { setFilter, toggleTodos } from '../../redux/actions';
 import { VISIBILITY_FILTERS } from '../../constants';
+import { Button } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
   const filters = {
@@ -41,28 +44,27 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
 
   return (
     <div className='Filters'>
-      <button onClick={handleToggle}>Liberar seleccionadas</button>
+      <Button color='primary' onClick={handleToggle}>
+        Liberar seleccionadas
+      </Button>
 
       <div className='FilterOptions'>
         {openFilter ? (
-          <select id='filters' value={activeFilter} onChange={handleFilter}>
+          <Select id='filters' value={activeFilter} onChange={handleFilter}>
             {Object.keys(VISIBILITY_FILTERS).map((filterKey) => {
               const currentFilter = VISIBILITY_FILTERS[filterKey];
               return (
-                <option value={currentFilter} key={currentFilter}>
+                <MenuItem value={currentFilter} key={currentFilter}>
                   {showFilterName(currentFilter)}
-                </option>
+                </MenuItem>
               );
             })}
-          </select>
+          </Select>
         ) : null}
-        <img
-          onClick={handleVisibility}
-          className='Image'
-          src={filterImg}
-          alt='filter'
-        ></img>
-        Ordenar
+        <Button onClick={handleVisibility} color='primary'>
+          <img className='Image' src={filterImg} alt='filter'></img>
+          Ordenar
+        </Button>
       </div>
     </div>
   );

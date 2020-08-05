@@ -1,3 +1,25 @@
+button {
+  cursor: pointer;
+}
+
+.Card-Liberada {
+  background-color: rgb(179, 255, 179) !important;
+}
+
+.Card-Atrasada {
+  background-color: rgb(255, 173, 159) !important;
+}
+
+.Card-Pendiente {
+  background-color: rgb(241, 255, 163) !important;
+}
+
+.CloseButton {
+  align-self: flex-end;
+  display: flex;
+  justify-self: flex-end;
+}
+
 .FilterOptions {
   display: flex;
   flex-flow: row nowrap;
@@ -27,21 +49,34 @@
 
 .Specs {
   align-items: center;
-  border: solid 2px #000000;
-  box-sizing: border-box;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-between;
   margin: 10px 20px;
-  padding: 30px;
+}
+
+.SpecsTitle {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.SpecsCheckBox {
+  align-self: flex-start;
+  display: flex;
+  justify-self: start;
+}
+
+.SpecsContent {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .Task {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-}
-
-button {
-  cursor: pointer;
 }
