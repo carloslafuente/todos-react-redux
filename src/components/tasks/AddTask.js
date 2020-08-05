@@ -8,7 +8,7 @@ const AddTask = ({ addTodo }) => {
   const [titleTask, setTitleTask] = useState({});
   const updateInput = (input) => setTitleTask(input);
 
-  const [finishTask, setFinishTask] = useState({});
+  const [finishTask, setFinishTask] = useState('');
   const updateFinishDate = (value) =>
     setFinishTask(formatDate(rightFormat(value)));
 
@@ -37,7 +37,7 @@ const AddTask = ({ addTodo }) => {
       id: uuid(),
       title: titleTask,
       creationDate: today(),
-      finishDate: finishTask,
+      finishDate: finishTask === '' ? today() : finishTask,
       status: 'Pendiente',
     };
     addTodo(newTask);
