@@ -6,6 +6,15 @@ import { setFilter, toggleTodos } from '../../redux/actions';
 import { VISIBILITY_FILTERS } from '../../constants';
 
 const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
+  const filters = {
+    CREATION_DATE_DESC: 'Fecha de creación ⬇',
+    CREATION_DATE_ASC: 'Fecha de creación ⬆',
+    FINISH_DATE_ASC: 'Fecha de finalización ⬆',
+    FINISH_DATE_DESC: 'Fecha de finalización ⬇',
+    STATUS_ATR_LIB: 'Atrasadas a Liberadas ⬇',
+    STATUS_LIB_ATR: 'Liberadas a Atrasadas ⬆',
+  };
+
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleVisibility = () => setOpenFilter(!openFilter);
@@ -16,7 +25,6 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
   };
 
   const handleToggle = () => {
-    console.log(ids);
     toggleTodos(ids);
     resetCheckBoxes();
   };
@@ -25,6 +33,10 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
     document
       .querySelectorAll('input[type=checkbox]')
       .forEach((el) => (el.checked = false));
+  };
+
+  const showFilterName = (code) => {
+    return filters[code];
   };
 
   return (
@@ -38,7 +50,7 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
               const currentFilter = VISIBILITY_FILTERS[filterKey];
               return (
                 <option value={currentFilter} key={currentFilter}>
-                  {currentFilter}
+                  {showFilterName(currentFilter)}
                 </option>
               );
             })}

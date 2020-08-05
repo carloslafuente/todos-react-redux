@@ -41,3 +41,7 @@
   flex-flow: column nowrap;
   width: 100%;
 }
+
+button {
+  cursor: pointer;
+}
