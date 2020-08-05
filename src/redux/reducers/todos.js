@@ -1,4 +1,10 @@
-import { ADD_TODO, EDIT_TODO } from '../actionTypes';
+import {
+  ADD_TODO,
+  EDIT_TODO,
+  TOGGLE_MARKED_TODOS,
+  ADD_ID,
+  REMOVE_ID,
+} from '../actionTypes';
 
 const initialState = {
   tasks: [
@@ -45,6 +51,7 @@ const initialState = {
       status: 'Liberada',
     },
   ],
+  ids: [],
 };
 
 export default function (state = initialState, action) {
@@ -64,6 +71,33 @@ export default function (state = initialState, action) {
       return {
         ...state,
         tasks: res,
+      };
+    }
+    case TOGGLE_MARKED_TODOS: {
+      const tasksToEdit = action.payload;
+      let newTasks = state.tasks.map((task) => {
+        if (tasksToEdit.find((e) => e.toString() === task.id.toString())) {
+          task = { ...task, status: 'Liberada' };
+        }
+        return task;
+      });
+      return {
+        ...state,
+        tasks: newTasks,
+        ids: [],
+      };
+    }
+    case ADD_ID: {
+      const newId = action.payload;
+      return { ...state, ids: [...state.ids.concat(newId)] };
+    }
+    case REMOVE_ID: {
+      const deleteId = action.payload;
+      return {
+        ...state,
+        ids: [
+          ...state.ids.filter((id) => id.toString() !== deleteId.toString()),
+        ],
       };
     }
     default:

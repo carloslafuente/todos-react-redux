@@ -1,4 +1,11 @@
-import { ADD_TODO, EDIT_TODO, SET_FILTER } from './actionTypes';
+import {
+  ADD_TODO,
+  EDIT_TODO,
+  SET_FILTER,
+  TOGGLE_MARKED_TODOS,
+  ADD_ID,
+  REMOVE_ID,
+} from './actionTypes';
 
 export const addTodo = (content) => {
   return {
@@ -14,9 +21,30 @@ export const editTodo = (content) => {
   };
 };
 
+export const toggleTodos = (ids) => {
+  return {
+    type: TOGGLE_MARKED_TODOS,
+    payload: ids,
+  };
+};
+
 export const setFilter = (filter) => {
   return {
     type: SET_FILTER,
     payload: { filter },
+  };
+};
+
+export const addIdToIds = (id) => {
+  return {
+    type: ADD_ID,
+    payload: id,
+  };
+};
+
+export const removeIdFromIds = (id) => {
+  return {
+    type: REMOVE_ID,
+    payload: id,
   };
 };

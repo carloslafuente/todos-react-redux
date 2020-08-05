@@ -1,9 +1,9 @@
 import React from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
-import { editTodo } from '../../redux/actions';
+import { editTodo, addIdToIds, removeIdFromIds } from '../../redux/actions';
 
-const Task = ({ task, editTodo }) => {
+const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
   const rightFormat = (date) => {
     let day = date.split('/')[0];
     let month = date.split('/')[1];
@@ -41,8 +41,20 @@ const Task = ({ task, editTodo }) => {
     editTodo(newTask);
   };
 
+  const handleCheckBox = (event) => {
+    console.log(event.target.checked);
+    let id = task.id;
+    if (event.target.checked) {
+      addIdToIds(id);
+    } else {
+      removeIdFromIds(id);
+    }
+  };
+
   return (
     <div className='Specs' key={task.id}>
+      <input type='checkbox' onChange={handleCheckBox}></input>
+
       <div>
         <h3>{task.status}</h3>
         <h5 style={{ margin: '5px' }}>Creacion: {task.creationDate}</h5>
@@ -68,4 +80,8 @@ const mapStateToProps = (state) => ({
   tasks: state.todos.tasks,
 });
 
-export default connect(mapStateToProps, { editTodo })(Task);
+export default connect(mapStateToProps, {
+  editTodo,
+  addIdToIds,
+  removeIdFromIds,
+})(Task);

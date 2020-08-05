@@ -1,6 +1,27 @@
-.Task {
+.FilterOptions {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.Filters {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.Image {
+  cursor: pointer;
+  height: 20px;
+  margin: 0 10px;
+  width: 20px;
+}
+
+.NewTaskData {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -15,22 +36,8 @@
   padding: 30px;
 }
 
-.NewTaskData {
+.Task {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-flow: column nowrap;
   width: 100%;
-}
-
-.Image {
-  cursor: pointer;
-  height: 20px;
-  margin-right: 10px;
-  width: 20px;
-}
-
-.Filters {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
 }
