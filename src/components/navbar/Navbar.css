@@ -1,64 +1,6 @@
 .Navbar {
+  align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center;
-}
-
-.Titles {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.Filters {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.Button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.FilterImage {
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-}
-
-.Tasks {
-  width: 90%;
-  padding-top: 20px;
-}
-
-.NewTask {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  width: 90%;
-  border: solid 2px #000000;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-}
-
-.AddButton {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  font-size: 3rem;
-  font-weight: 900;
-  text-align: center;
-  vertical-align: middle;
-  padding: auto;
-  cursor: pointer;
-  outline: none;
 }

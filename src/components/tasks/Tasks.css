@@ -5,20 +5,21 @@
 }
 
 .Specs {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   align-items: center;
   border: solid 2px #000000;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin: 10px 20px;
   padding: 30px;
 }
 
 .Image {
+  cursor: pointer;
   height: 20px;
-  width: 20px;
   margin-right: 10px;
+  width: 20px;
 }
 
 .Filters {

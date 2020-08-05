@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 import uuid from 'react-uuid';
 
-const AddTask = ({ task = {}, addTodo }) => {
+const AddTask = ({ task = {}, currentFilter, addTodo }) => {
   const updateInput = (input) => {
     task.title = input;
   };
@@ -54,10 +54,13 @@ const AddTask = ({ task = {}, addTodo }) => {
       ></input>
 
       <button onClick={handleAddTodo}>Add</button>
+      <h5>Filtro: {currentFilter}</h5>
     </div>
   );
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  currentFilter: state.visibilityFilter,
+});
 
 export default connect(mapStateToProps, { addTodo })(AddTask);

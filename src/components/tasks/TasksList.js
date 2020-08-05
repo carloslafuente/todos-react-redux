@@ -3,12 +3,11 @@ import './Tasks.css';
 import { connect } from 'react-redux';
 import AddTask from './AddTask';
 import Task from './Task';
-import Filters from './Filters';
+import { getTodosByVisibilityFilter } from '../../redux/selectors';
 
 const TasksList = ({ tasks }) => {
   return (
     <div className='Task'>
-      <Filters />
       {tasks.map((t) => (
         <Task task={t} key={t.id} />
       ))}
@@ -17,9 +16,11 @@ const TasksList = ({ tasks }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  tasks: state.todos.tasks,
-});
+const mapStateToProps = (state) => {
+  const { visibilityFilter, todos } = state;
+  const tasksF = getTodosByVisibilityFilter(state, visibilityFilter);
+  return { tasks: todos.tasks, tasksF };
+};
 
 const mapDispatchToProps = () => ({});
 
