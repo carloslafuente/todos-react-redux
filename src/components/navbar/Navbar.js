@@ -8,7 +8,8 @@ import pendiente from '../../assets/pendiente.svg';
 const Navbar = () => {
   return (
     <div className='Navbar'>
-      <h1>Tareas por hacer</h1>
+      <h1>Tareas por hacer </h1>
+      <h3>Autor: Carlos La Fuente Sanguino</h3>
       <div className='Info'>
         <div>
           <img src={liberada} alt='Liberada' className='Image-Liberada'></img>

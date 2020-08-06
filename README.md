@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 
 ### `json-server --watch db.json --port 5000`
 
-Runs the virtual server in the development mode.<br />
+Runs the virtual server in development mode.<br />
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 ### `npm test`
