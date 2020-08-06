@@ -5,7 +5,14 @@ import {
   TOGGLE_MARKED_TODOS,
   ADD_ID,
   REMOVE_ID,
+  GET_TODOS,
 } from './actionTypes';
+import jsonDb from './apis/jsonDb';
+
+export const getTodos = () => async (dispatch) => {
+  const tasks = await jsonDb.get('tasks');
+  dispatch({ type: GET_TODOS, payload: tasks });
+};
 
 export const addTodo = (content) => {
   return {

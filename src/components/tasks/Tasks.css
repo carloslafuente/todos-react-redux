@@ -75,8 +75,16 @@ button {
   width: 100%;
 }
 
+.Spinner {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: center;
+}
+
 .Task {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
+  justify-content: center;
 }

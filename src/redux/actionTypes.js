@@ -4,3 +4,4 @@ export const SET_FILTER = 'SET_FILTER';
 export const TOGGLE_MARKED_TODOS = 'TOGGLE_MARKED_TODOS';
 export const ADD_ID = 'ADD_ID';
 export const REMOVE_ID = 'REMOVE_ID';
+export const GET_TODOS = 'GET_TODOS';
