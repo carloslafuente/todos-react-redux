@@ -5,3 +5,32 @@
   justify-content: center;
   margin: 10px 20px;
 }
+
+.Info {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Image-Liberada {
+  filter: invert(30%) sepia(70%) saturate(1352%) hue-rotate(87deg)
+    brightness(119%) contrast(119%);
+  height: 50px;
+  margin: 0 20px;
+  width: 50px;
+}
+
+.Image-Atrasada {
+  filter: invert(20%) sepia(36%) saturate(5559%) hue-rotate(345deg)
+    brightness(130%) contrast(112%);
+  height: 50px;
+  margin: 0 20px;
+  width: 50px;
+}
+
+.Image-Pendiente {
+  filter: invert(85%) sepia(100%) saturate(4373%) hue-rotate(323deg)
+    brightness(100%) contrast(107%);
+  height: 50px;
+  margin: 0 20px;
+  width: 50px;
+}

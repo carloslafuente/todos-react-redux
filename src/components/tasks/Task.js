@@ -5,7 +5,6 @@ import { editTodo, addIdToIds, removeIdFromIds } from '../../redux/actions';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
@@ -79,12 +78,11 @@ const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
       className={'Specs ' + states[task.status].style}
       key={task.id}
     >
-      <Checkbox
+      <input
         className='SpecsCheckBox'
-        color='default'
         type='checkbox'
         onChange={handleCheckBox}
-      ></Checkbox>
+      ></input>
 
       <CardHeader className='SpecsTitle' title={task.title} />
 

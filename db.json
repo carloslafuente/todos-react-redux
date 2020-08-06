@@ -5,28 +5,28 @@
       "title": "Pasear al perro",
       "creationDate": "3/8/2020",
       "finishDate": "22/8/2020",
-      "status": "Liberada"
+      "status": "Pendiente"
     },
     {
       "id": 2,
       "title": "Hacer la tarea",
       "creationDate": "14/8/2020",
       "finishDate": "20/8/2020",
-      "status": "Atrasada"
+      "status": "Liberada"
     },
     {
       "id": 3,
       "title": "Estudiar para el examen",
       "creationDate": "10/8/2020",
       "finishDate": "23/8/2020",
-      "status": "Liberada"
+      "status": "Atrasada"
     },
     {
       "id": 4,
       "title": "Lavar la ropa",
       "creationDate": "1/8/2020",
       "finishDate": "25/8/2020",
-      "status": "Pendiente"
+      "status": "Atrasada"
     },
     {
       "id": 5,
@@ -40,7 +40,7 @@
       "title": "Mirar las estrellas",
       "creationDate": "10/8/2020",
       "finishDate": "23/10/2020",
-      "status": "Atrasada"
+      "status": "Pendiente"
     },
     {
       "id": "3c3ae8-e6dd-a55-00ce-1cea4f83f0",
@@ -48,6 +48,20 @@
       "creationDate": "6/8/2020",
       "finishDate": "6/8/2020",
       "status": "Liberada"
+    },
+    {
+      "id": "28f414-c45-dce3-f440-e130a7ee024",
+      "title": "Comprar una computadora",
+      "creationDate": "6/8/2020",
+      "finishDate": "8/8/2020",
+      "status": "Pendiente"
+    },
+    {
+      "id": "ff3cb3-316-8784-335-cd72d40c33fb",
+      "title": "Comprar regalo",
+      "creationDate": "6/8/2020",
+      "finishDate": "19/8/2020",
+      "status": "Pendiente"
     }
   ]
 }

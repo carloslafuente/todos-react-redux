@@ -47,6 +47,11 @@ const AddTask = ({ addTodo }) => {
       status: 'Pendiente',
     };
     addTodo(newTask);
+    restoreInput();
+  };
+
+  const restoreInput = () => {
+    document.querySelector('#TaskName').value = '';
   };
 
   const defaultDate = () => {
@@ -83,6 +88,7 @@ const AddTask = ({ addTodo }) => {
       {openFilter ? (
         <CardContent className='NewTaskData'>
           <input
+            id='TaskName'
             onChange={(e) => updateInput(e.target.value)}
             placeholder='Nueva Tarea'
           ></input>
