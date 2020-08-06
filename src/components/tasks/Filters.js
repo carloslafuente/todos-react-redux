@@ -29,15 +29,8 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
 
   const handleToggle = () => {
     toggleTodos(ids);
-    resetCheckBoxes();
   };
-
-  const resetCheckBoxes = () => {
-    document
-      .querySelectorAll('input[type=checkbox]')
-      .forEach((el) => (el.checked = false));
-  };
-
+  
   const showFilterName = (code) => {
     return filters[code];
   };
@@ -71,7 +64,6 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.todos.ids);
   return { activeFilter: state.visibilityFilter, ids: state.todos.ids };
 };
 

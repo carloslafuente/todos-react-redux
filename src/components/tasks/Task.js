@@ -49,7 +49,6 @@ const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
   };
 
   const handleCheckBox = (event) => {
-    console.log(event.target.checked);
     let id = task.id;
     if (event.target.checked) {
       addIdToIds(id);
@@ -75,7 +74,11 @@ const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
   };
 
   return (
-    <Card color='primary' className={'Specs ' + states[task.status].style} key={task.id}>
+    <Card
+      color='primary'
+      className={'Specs ' + states[task.status].style}
+      key={task.id}
+    >
       <Checkbox
         className='SpecsCheckBox'
         color='default'
@@ -86,7 +89,11 @@ const Task = ({ task, editTodo, addIdToIds, removeIdFromIds }) => {
       <CardHeader className='SpecsTitle' title={task.title} />
 
       <CardContent className='SpecsContent'>
-        <Avatar style={{ margin: '10px' }} alt={task.title} src={states[task.status].icon} />
+        <Avatar
+          style={{ margin: '10px' }}
+          alt={task.title}
+          src={states[task.status].icon}
+        />
 
         <Typography style={{ margin: '5px' }}>
           Creado: {task.creationDate}
