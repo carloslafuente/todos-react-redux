@@ -4,8 +4,8 @@
       "id": 1,
       "title": "Pasear al perro",
       "creationDate": "3/8/2020",
-      "finishDate": "15/8/2020",
-      "status": "Pendiente"
+      "finishDate": "22/8/2020",
+      "status": "Liberada"
     },
     {
       "id": 2,
@@ -33,13 +33,20 @@
       "title": "Cortarme el pelo",
       "creationDate": "6/8/2020",
       "finishDate": "9/9/2020",
-      "status": "Atrasada"
+      "status": "Pendiente"
     },
     {
       "id": 6,
       "title": "Mirar las estrellas",
       "creationDate": "10/8/2020",
       "finishDate": "23/10/2020",
+      "status": "Atrasada"
+    },
+    {
+      "id": "3c3ae8-e6dd-a55-00ce-1cea4f83f0",
+      "title": "Comprar comida china",
+      "creationDate": "6/8/2020",
+      "finishDate": "6/8/2020",
       "status": "Liberada"
     }
   ]

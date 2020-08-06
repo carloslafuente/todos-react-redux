@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
 import filterImg from '../../assets/filter-solid.svg';
-import { setFilter, toggleTodos } from '../../redux/actions';
+import { setFilter, toggleTodos, toggleTodo } from '../../redux/actions';
 import { VISIBILITY_FILTERS } from '../../constants';
 import { Button } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
+const Filters = ({ activeFilter, ids, setFilter, toggleTodos, toggleTodo }) => {
   const filters = {
     CREATION_DATE_DESC: 'Fecha de creación ⬇',
     CREATION_DATE_ASC: 'Fecha de creación ⬆',
@@ -28,9 +28,12 @@ const Filters = ({ activeFilter, ids, setFilter, toggleTodos }) => {
   };
 
   const handleToggle = () => {
-    toggleTodos(ids);
+    // toggleTodos(ids);
+    ids.forEach((id) => {
+      toggleTodo(id);
+    });
   };
-  
+
   const showFilterName = (code) => {
     return filters[code];
   };
@@ -67,4 +70,6 @@ const mapStateToProps = (state) => {
   return { activeFilter: state.visibilityFilter, ids: state.todos.ids };
 };
 
-export default connect(mapStateToProps, { setFilter, toggleTodos })(Filters);
+export default connect(mapStateToProps, { setFilter, toggleTodos, toggleTodo })(
+  Filters
+);

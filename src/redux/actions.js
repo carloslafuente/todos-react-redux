@@ -15,16 +15,16 @@ export const getTodos = () => async (dispatch) => {
 };
 
 export const addTodo = (content) => {
-  return {
-    type: ADD_TODO,
-    payload: content,
+  return async (dispatch) => {
+    const task = await jsonDb.post('tasks', content);
+    dispatch({ type: ADD_TODO, payload: task });
   };
 };
 
 export const editTodo = (content) => {
-  return {
-    type: EDIT_TODO,
-    payload: content,
+  return async (dispatch) => {
+    const task = await jsonDb.put(`tasks/${content.id}`, content);
+    dispatch({ type: EDIT_TODO, payload: task });
   };
 };
 
@@ -32,6 +32,13 @@ export const toggleTodos = (ids) => {
   return {
     type: TOGGLE_MARKED_TODOS,
     payload: ids,
+  };
+};
+
+export const toggleTodo = (id) => {
+  return async (dispatch) => {
+    const task = await jsonDb.patch(`tasks/${id}`, { status: 'Liberada' });
+    dispatch({ type: EDIT_TODO, payload: task });
   };
 };
 

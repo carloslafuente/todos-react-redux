@@ -5,6 +5,7 @@ import {
   ADD_ID,
   REMOVE_ID,
   GET_TODOS,
+  TOGGLE_TODO,
 } from '../actionTypes';
 
 const initialState = {
@@ -58,11 +59,10 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
-      const newTask = action.payload;
-      return { ...state, tasks: [...state.tasks.concat(newTask)] };
+      return { ...state, tasks: [...state.tasks.concat(action.payload.data)] };
     }
     case EDIT_TODO: {
-      const taskToEdit = action.payload;
+      const taskToEdit = action.payload.data;
       let res = state.tasks.map((task) => {
         if (task.id === taskToEdit.id) {
           task = taskToEdit;
@@ -86,6 +86,19 @@ export default function (state = initialState, action) {
         ...state,
         tasks: newTasks,
         ids: [],
+      };
+    }
+    case TOGGLE_TODO: {
+      const taskToEdit = action.payload.data;
+      let res = state.tasks.map((task) => {
+        if (task.id === taskToEdit.id) {
+          task = taskToEdit;
+        }
+        return task;
+      });
+      return {
+        ...state,
+        tasks: res,
       };
     }
     case ADD_ID: {
