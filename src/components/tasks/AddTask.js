@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
-import { addTodo } from '../../redux/actions';
+import { addTodo } from '../../redux/actions/actions';
 import uuid from 'react-uuid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';

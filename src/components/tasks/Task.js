@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
-import { editTodo, addIdToIds, removeIdFromIds } from '../../redux/actions';
+import { editTodo, addIdToIds, removeIdFromIds } from '../../redux/actions/actions';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';

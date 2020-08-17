@@ -11,7 +11,7 @@
       "id": 2,
       "title": "Hacer la tarea",
       "creationDate": "14/8/2020",
-      "finishDate": "20/8/2020",
+      "finishDate": "22/8/2020",
       "status": "Liberada"
     },
     {
@@ -19,7 +19,7 @@
       "title": "Estudiar para el examen",
       "creationDate": "10/8/2020",
       "finishDate": "23/8/2020",
-      "status": "Atrasada"
+      "status": "Liberada"
     },
     {
       "id": 4,
@@ -39,14 +39,14 @@
       "id": 6,
       "title": "Mirar las estrellas",
       "creationDate": "10/8/2020",
-      "finishDate": "23/10/2020",
+      "finishDate": "31/12/2020",
       "status": "Pendiente"
     },
     {
       "id": "3c3ae8-e6dd-a55-00ce-1cea4f83f0",
       "title": "Comprar comida china",
       "creationDate": "6/8/2020",
-      "finishDate": "6/8/2020",
+      "finishDate": "27/8/2020",
       "status": "Liberada"
     },
     {
@@ -54,14 +54,14 @@
       "title": "Comprar una computadora",
       "creationDate": "6/8/2020",
       "finishDate": "8/8/2020",
-      "status": "Pendiente"
+      "status": "Liberada"
     },
     {
       "id": "ff3cb3-316-8784-335-cd72d40c33fb",
       "title": "Comprar regalo",
       "creationDate": "6/8/2020",
       "finishDate": "19/8/2020",
-      "status": "Pendiente"
+      "status": "Liberada"
     }
   ]
 }

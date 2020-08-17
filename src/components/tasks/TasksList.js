@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AddTask from './AddTask';
 import Task from './Task';
 import { getTodosByVisibilityFilter } from '../../redux/selectors';
-import { getTodos } from '../../redux/actions';
+import { getTodos } from '../../redux/actions/actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const TasksList = ({ tasks, getTodos }) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Tasks.css';
 import { connect } from 'react-redux';
 import filterImg from '../../assets/filter-solid.svg';
-import { setFilter, toggleTodo } from '../../redux/actions';
+import { setFilter, toggleTodo } from '../../redux/actions/actions';
 import { VISIBILITY_FILTERS } from '../../constants';
 import { Button } from '@material-ui/core';
 import Select from '@material-ui/core/Select';

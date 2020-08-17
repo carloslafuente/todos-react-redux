@@ -7,7 +7,7 @@ import {
   REMOVE_ID,
   GET_TODOS,
 } from './actionTypes';
-import jsonDb from './apis/jsonDb';
+import jsonDb from '../apis/jsonDb';
 
 export const getTodos = () => async (dispatch) => {
   const tasks = await jsonDb.get('tasks');
